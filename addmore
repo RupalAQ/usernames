@@ -1,0 +1,18 @@
+import React from 'react'
+
+function AddMore() {
+    return(
+        <div>
+            <ul className = "pager wizard mb-0 list-inline text-end mt-2" >
+            <li className="next list-inline-item">
+                <button type="button" className="btn btn-success" >
+                    Add More Info{" "}
+                    <i className="mdi mdi-arrow-right ms-1" />
+                </button>
+            </li>
+            </ul>
+        </div>
+    )
+}
+
+export default AddMore
