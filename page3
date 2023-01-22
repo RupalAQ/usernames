@@ -1,0 +1,255 @@
+import React from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import { useDispatch } from "react-redux";
+import { PostEmerContAction } from "../../redux/userRedux/action/actions";
+export default function Form3(props) {
+  const dispatch = useDispatch();
+  const initialValues = {
+    first_name: "",
+    last_name: "",
+    middle_name: "",
+    email: "",
+    contact_number: "",
+    fax_number: "",
+    lab_address1: "",
+    lab_address2: "",
+    inputZip: "",
+    inputCity: "",
+  };
+
+  const validateSchema = Yup.object({
+    first_name: Yup.string().required("Required"),
+    email: Yup.string().email("Enter a valid Email").required("Required"),
+  });
+  const handleSubmit = (values) => {
+    const finalData = {
+      first_name: values.first_name,
+      last_name: values.last_name,
+      middle_name: values.middle_name,
+      email: values.email,
+      contact_number: values.contact_number,
+      fax_number: values.fax_number,
+      lab_address1: values.lab_address1,
+      lab_address2: values.lab_address2,
+      inputZip: values.inputZip,
+      inputCity: values.inputCity,
+    };
+    dispatch(PostEmerContAction(finalData)).then(() => {
+      alert("Details Saved successfully");
+      props.onClick();
+    });
+  };
+  return (
+    <Formik
+      validationSchema={validateSchema}
+      initialValues={initialValues}
+      onSubmit={handleSubmit}
+    >
+      <div
+        className={
+          props.state === 3
+            ? "tab-pane active  px-3 py-2"
+            : "tab-pane px-3 py-2"
+        }
+        id="basictab3"
+      >
+        <div className="col-12 ">
+          <h5 className="mt-0 bg-light p-2 mb-2">
+            <i className="fa fa-info-circle me-1" />
+            Emergency Contact
+          </h5>
+          <Form autoComplete="off">
+            <div className="row">
+              <div className="mb-2 col-md-4">
+                <label htmlFor="first_name" className="form-label">
+                  First Name
+                </label>
+                <div className="input-group">
+                  <div className="btn-group">
+                    <button
+                      type="button"
+                      className="btn btn-light border titledropdown-toggle dropdown-toggle px-1"
+                      data-bs-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      Title <i className="mdi mdi-chevron-down" />
+                    </button>
+                    <div className="dropdown-menu">
+                      Mr.
+                      Mrs.
+                      Dr.
+                    </div>
+                  </div>
+                  <Field
+                    type="text"
+                    className="form-control"
+                    placeholder="Enter first name"
+                    name="first_name"
+                  />
+                </div>
+                <ErrorMessage
+                  name="first_name"
+                  component="div"
+                  className="text text-danger ml-2"
+                />
+              </div>
+              <div className="mb-2 col-md-4">
+                <label htmlFor="middle_name" className="form-label">
+                  Middle Name
+                </label>
+                <Field
+                  type="text"
+                  className="form-control"
+                  name="middle_name"
+                  placeholder="Enter middle name"
+                />
+              </div>
+              <div className="mb-2 col-md-4">
+                <label htmlFor="last_name" className="form-label">
+                  Last Name
+                </label>
+                <Field
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter last name"
+                  name="last_name"
+                />
+              </div>
+            </div>
+            <div className="row">
+              <div className="mb-2 col-md-4">
+                <label htmlFor="email" className="form-label">
+                  Email
+                </label>
+                <Field
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter lab email"
+                  name="email"
+                />
+                <ErrorMessage
+                  name="email"
+                  component="div"
+                  className="text text-danger ml-2"
+                />
+              </div>
+              <div className="mb-2 col-md-4">
+                <label htmlFor="contact_number" className="form-label">
+                  Contact Number
+                </label>
+                <Field
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter contact number"
+                  name="contact_number"
+                />
+              </div>
+              <div className="mb-2 col-md-4">
+                <label htmlFor="fax_number" className="form-label">
+                  Fax Number
+                </label>
+                <Field
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter fax number"
+                  name="fax_number"
+                />
+              </div>
+            </div>
+            <div className="row">
+              <div className="mb-2 col-md-8">
+                <label htmlFor="lab_address1" className="form-label">
+                  Address 1
+                </label>
+                <Field
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter address 1"
+                  name="lab_address1"
+                />
+              </div>
+              <div className="mb-2 col-md-4">
+                <label htmlFor="lab-address2" className="form-label">
+                  Complimentary Address{" "}
+                </label>
+                <Field
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter complimentary address "
+                  name="lab_address2"
+                />
+              </div>
+            </div>
+            <div className="row">
+              <div className="mb-2 col-md-3">
+                <label htmlFor="inputZip" className="form-label">
+                  Zip
+                </label>
+                <Field
+                  type="text"
+                  className="form-control"
+                  id="inputZip"
+                  name="inputZip"
+                />
+              </div>
+              <div className="mb-2 col-md-3">
+                <label htmlFor="inputCity" className="form-label">
+                  City
+                </label>
+                <Field
+                  type="text"
+                  className="form-control"
+                  id="inputCity"
+                  name="inputCity"
+                />
+              </div>
+              <div className="mb-2 col-md-3">
+                <label htmlFor="inputState" className="form-label">
+                  State
+                </label>
+                <select id="inputState" className="form-select">
+                  <option>Choose</option>
+                  <option>Option 1</option>
+                  <option>Option 2</option>
+                  <option>Option 3</option>
+                </select>
+              </div>
+              <div className="mb-2 col-md-3">
+                <label htmlFor="inputState" className="form-label">
+                  Country
+                </label>
+                <select id="inputState" className="form-select">
+                  <option>Option 1</option>
+                  <option>Option 2</option>
+                  <option>Option 3</option>
+                </select>
+              </div>
+            </div>
+            <ul className="pager wizard mb-0 list-inline mt-2">
+              <li className="previous list-inline-item">
+                <button
+                  type="button"
+                  className="btn btn-light"
+                  onClick={props.onClick2}
+                >
+                  <i className="mdi mdi-arrow-left me-1" /> Back to Account
+                </button>
+              </li>
+              <li className="next list-inline-item float-end">
+                <button
+                  type="submit"
+                  className="btn btn-success"
+                >
+                  Add More Info <i className="mdi mdi-arrow-right ms-1" />
+                </button>
+              </li>
+            </ul>
+          </Form>
+        </div>
+      </div>
+    </Formik>
+  );
+}
+
