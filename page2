@@ -1,0 +1,154 @@
+import React from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import { useRedux } from "../../hooks";
+import { PostposAction } from "../../redux/userRedux/action/actions"
+
+export default function Form2(props) {
+  const { dispatch } = useRedux();
+  const today = new Date();
+  const [date, setDate] = React.useState(new Date());
+
+  const initialValues = {
+    emp_id: "",
+    doj: "",
+  };
+
+  const validateSchema = Yup.object({
+    emp_id: Yup.string().required("Required"),
+  });
+
+  const handleSubmit = (values) => {
+    const finalData = {
+      emp_id: values.emp_id,
+      doj: values.emp_id,
+    };
+    dispatch(PostposAction(finalData)).then(() => {
+      alert("Details Saved Successfully");
+      props.onClick();
+    });
+  };
+  return (
+    <Formik
+      validationSchema={validateSchema}
+      initialValues={initialValues}
+      onSubmit={handleSubmit}
+    >
+      <div
+        className={
+          props.state === 2
+            ? "tab-pane active  px-3 py-2"
+            : "tab-pane px-3 py-2"
+        }
+        id="basictab2"
+      >
+        <div className="col-12 ">
+          <h5 className="mt-0 bg-light p-2 mb-2">
+            <i className="fa fa-info-circle me-1" />
+            Position
+          </h5>
+          <Form>
+            <div className="row">
+              <div className="mb-2 col-md-4">
+                <label htmlFor="emp_id" className="form-label">
+                  Employement ID
+                </label>
+                <Field
+                  type="text"
+                  className="form-control"
+                  name="emp_id"
+                  placeholder="Enter employment id"
+                />
+                <ErrorMessage
+                  name="emp_id"
+                  component="div"
+                  className="text text-danger ml-2"
+                />
+              </div>
+              <div className="mb-2 col-md-4">
+                <label htmlFor="join-date" className="form-label">
+                  Joining Date
+                </label>
+                <div className="input-group position-relative" id="datepicker1">
+                  <DatePicker
+                    className="form-control"
+                    as="select"
+                    maxDate={today}
+                    name="doj"
+                    selected={date}
+                    onChange={(date) => setDate(date)}
+                  />
+                  <span className="input-group-text">
+                    <i className="ri-calendar-event-fill" />
+                  </span>
+                </div>
+              </div>
+              <div className="mb-2 col-md-4">
+                <label htmlFor="department" className="form-label">
+                  Department
+                </label>
+                <select className="form-select">
+                  <option>Choose</option>
+                  <option>Option 1</option>
+                  <option>Option 2</option>
+                  <option>Option 3</option>
+                </select>
+              </div>
+              <div className="row">
+                <div className="mb-2 col-md-4">
+                  <label htmlFor="designation" className="form-label">
+                    Designation
+                  </label>
+                  <select className="form-select">
+                    <option>Option 1</option>
+                    <option>Option 2</option>
+                    <option>Option 3</option>
+                  </select>
+                </div>
+                <div className="mb-2 col-md-4">
+                  <label htmlFor="designation" className="form-label">
+                    Role
+                  </label>
+                  <select className="form-select">
+                    <option>Option 1</option>
+                    <option>Option 2</option>
+                    <option>Option 3</option>
+                  </select>
+                </div>
+                <div className="mb-2 col-md-4">
+                  <label htmlFor="reporting" className="form-label">
+                    Reporting To
+                  </label>
+                  <select className="form-select">
+                    <option>Option 1</option>
+                    <option>Option 2</option>
+                    <option>Option 3</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <ul className="pager wizard mb-0 list-inline mt-2">
+              <li className="previous list-inline-item">
+                <button
+                  type="button"
+                  className="btn btn-light"
+                  onClick={props.onClick2}
+                >
+                  <i className="mdi mdi-arrow-left me-1" /> Back to Account
+                </button>
+              </li>
+              <li className="next list-inline-item float-end">
+                <button type="submit" className="btn btn-success">
+                  Add More Info <i className="mdi mdi-arrow-right ms-1" />
+                </button>
+              </li>
+            </ul>
+          </Form>
+        </div>
+      </div>
+    </Formik>
+  );
+}
+
