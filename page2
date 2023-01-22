@@ -39,6 +39,7 @@ var MyClass = React.createClass{
                 <i classname="fa fa-info-circle me-1">
                   Position
                 </i></h5><i classname="fa fa-info-circle me-1">
+                
                 <form>
                   <div classname="row">
                     <div classname="mb-2 col-md-4">
