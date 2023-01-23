@@ -73,7 +73,9 @@ var NewComponent = React.createClass({
                 <h5 classname="mt-0 bg-light p-2 mb-2">
                   <i classname="fa fa-info-circle me-1">
                     User Details
-                  </i></h5><i classname="fa fa-info-circle me-1">
+                  </i>
+                  </h5>
+                  <i classname="fa fa-info-circle me-1">
                   <form autoComplete="off">
                     <div classname="row">
                       <div classname="mb-2 col-md-4">
@@ -83,8 +85,11 @@ var NewComponent = React.createClass({
                         <div classname="input-group">
                           <div classname="btn-group">
                             <button type="button" classname="btn btn-light border titledropdown-toggle dropdown-toggle px-1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Title <i classname="mdi mdi-chevron-down">
-                              </i></button><i classname="mdi mdi-chevron-down">
+                              Title 
+                              <i classname="mdi mdi-chevron-down">
+                              </i>
+                              </button>
+                              <i classname="mdi mdi-chevron-down">
                               <div classname="dropdown-menu">
                                 {'{'}/* <a classname="dropdown-item" href="#"> */{'}'}
                                   Mr.
@@ -99,24 +104,36 @@ var NewComponent = React.createClass({
                                   Prof.
                                   {'{'}/* </a> */{'}'}
                               </div>
-                            </i></div><i classname="mdi mdi-chevron-down">
+                            </i>
+                            </div>
+                            <i classname="mdi mdi-chevron-down">
                             <field type="text" classname="form-control" placeholder="Enter first name" id="first_name" name="first_name">
-                            </field></i></div><i classname="mdi mdi-chevron-down">
+                            </field>
+                            </i>
+                            </div>
+                            <i classname="mdi mdi-chevron-down">
                           <errormessage name="first_name" component="div" classname="text text-danger ml-2">
-                          </errormessage></i></div><i classname="mdi mdi-chevron-down">
+                          </errormessage>
+                          </i>
+                          </div>
+                          <i classname="mdi mdi-chevron-down">
                         <div classname="mb-2 col-md-4">
                           <label htmlfor="middle_name" classname="form-label">
                             Middle name
                           </label>
                           <field type="text" classname="form-control" placeholder="Enter middle name" name="middle_name" id="middle_name" required>
-                          </field></div>
+                          </field>
+                          </div>
                         <div classname="mb-2 col-md-4">
                           <label htmlfor="last_name" classname="form-label">
                             Last Name
                           </label>
                           <field type="text" classname="form-control" placeholder="Enter last name" name="last_name" id="last_name">
-                          </field></div>
-                      </i></div><i classname="mdi mdi-chevron-down">
+                          </field>
+                          </div>
+                      </i>
+                      </div>
+                      <i classname="mdi mdi-chevron-down">
                       <div classname="row">
                         <div classname="mb-2 col-md-4">
                           <label htmlfor="gender" classname="form-label">
@@ -174,20 +191,24 @@ var NewComponent = React.createClass({
                       <h5 classname="mt-2 bg-light p-2 mb-2">
                         <i classname="fa fa-info-circle me-1">
                           Upload Documents
-                        </i></h5><i classname="fa fa-info-circle me-1">
+                        </i>
+                        </h5>
+                        <i classname="fa fa-info-circle me-1">
                         <div classname="row  d-flex align-items-end">
                           <div classname="col-md-4 mb-2">
                             <label htmlfor="file_name" classname="form-label">
                               File Name{'{'}" "{'}'}
                             </label>
                             <field classname="form-control" type="text" placeholder="Enter File name" name="file_name">
-                            </field></div>
+                            </field>
+                            </div>
                           <div classname="col-md-4 mb-2 ">
                             <label htmlfor="upload_file" classname="form-label">
                               Upload Document{'{'}" "{'}'}
                             </label>
                             <field classname="form-control" type="file" name="upload_file" id="upload_file">
-                            </field></div>
+                            </field>
+                            </div>
                         </div>
                         <div classname="row">
                           <div classname="col-12">
@@ -200,7 +221,9 @@ var NewComponent = React.createClass({
                           <h5 classname="mt-2 bg-light p-2 mb-2">
                             <i classname="fa fa-info-circle me-1">
                               Contact Details
-                            </i></h5><i classname="fa fa-info-circle me-1">
+                            </i>
+                            </h5>
+                            <i classname="fa fa-info-circle me-1">
                             <div classname="row">
                               <div classname="mb-2 col-md-4">
                                 <label htmlfor="email" classname="form-label">
@@ -211,19 +234,23 @@ var NewComponent = React.createClass({
                                     <span classname="form-text text-muted">
                                       <small>This email will be use as username.</small>
                                     </span>
-                                  </errormessage></field></div>
+                                  </errormessage>
+                                  </field>
+                                  </div>
                               <div classname="mb-2 col-md-4">
                                 <label htmlfor="contact_number" classname="form-label">
                                   Contact Number
                                 </label>
                                 <field type="text" classname="form-control" placeholder="Enter contact number" name="contact_number" id="contact_number">
-                                </field></div>
+                                </field>
+                                </div>
                               <div classname="mb-2 col-md-4">
                                 <label htmlfor="fax_number" classname="form-label">
                                   Fax Number
                                 </label>
                                 <field type="text" classname="form-control" placeholder="Enter fax number" name="fax_number" id="fax_number">
-                                </field></div>
+                                </field>
+                                </div>
                             </div>
                             <div classname="row">
                               <div classname="mb-2 col-md-8">
@@ -231,13 +258,15 @@ var NewComponent = React.createClass({
                                   Address{'{'}" "{'}'}
                                 </label>
                                 <field type="text" classname="form-control" placeholder="Enter address 1" name="lab_address1" id="lab_address1">
-                                </field></div>
+                                </field>
+                                </div>
                               <div classname="mb-2 col-md-4">
                                 <label htmlfor="lab_address2" classname="form-label">
                                   Complimentary Address{'{'}" "{'}'}
                                 </label>
                                 <field type="text" classname="form-control" placeholder="Enter complimentary address " name="lab_address2" id="lab_address2">
-                                </field></div>
+                                </field>
+                                </div>
                             </div>
                             <div classname="row">
                               <div classname="mb-2 col-md-3">
@@ -245,13 +274,15 @@ var NewComponent = React.createClass({
                                   Zip
                                 </label>
                                 <field type="text" classname="form-control" id="inputZip" name="inputZip">
-                                </field></div>
+                                </field>
+                                </div>
                               <div classname="mb-2 col-md-3">
                                 <label htmlfor="inputCity" classname="form-label">
                                   City
                                 </label>
                                 <field type="text" classname="form-control" id="inputCity" name="inputCity">
-                                </field></div>
+                                </field>
+                                </div>
                               <div classname="mb-2 col-md-3">
                                 <label htmlfor="inputState" classname="form-label">
                                   State
