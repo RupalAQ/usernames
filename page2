@@ -38,7 +38,9 @@ var NewComponent = React.createClass({
               <h5 classname="mt-0 bg-light p-2 mb-2">
                 <i classname="fa fa-info-circle me-1">
                   Position
-                </i></h5><i classname="fa fa-info-circle me-1">
+                </i>
+                </h5>
+                <i classname="fa fa-info-circle me-1">
                 <form>
                   <div classname="row">
                     <div classname="mb-2 col-md-4">
@@ -47,7 +49,9 @@ var NewComponent = React.createClass({
                       </label>
                       <field type="text" classname="form-control" name="emp_id" placeholder="Enter employment id">
                         <errormessage name="emp_id" component="div" classname="text text-danger ml-2">
-                        </errormessage></field></div>
+                        </errormessage>
+                        </field>
+                        </div>
                     <div classname="mb-2 col-md-4">
                       <label htmlfor="join-date" classname="form-label">
                         Joining Date
@@ -57,9 +61,16 @@ var NewComponent = React.createClass({
                           /&gt;
                           <span classname="input-group-text">
                             <i classname="ri-calendar-event-fill">
-                            </i></span><i classname="ri-calendar-event-fill">
-                          </i></datepicker></div><i classname="ri-calendar-event-fill">
-                      </i></div><i classname="ri-calendar-event-fill">
+                            </i>
+                            </span>
+                            <i classname="ri-calendar-event-fill">
+                          </i>
+                          </datepicker>
+                          </div>
+                          <i classname="ri-calendar-event-fill">
+                      </i>
+                      </div>
+                      <i classname="ri-calendar-event-fill">
                       <div classname="mb-2 col-md-4">
                         <label htmlfor="department" classname="form-label">
                           Department
