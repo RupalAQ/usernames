@@ -3,381 +3,306 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+//import { form } from "../../redux/auth/auth";
 import { useRedux } from "../../hooks";
 import { PostUserDetailsAction } from "../../redux/userRedux/action/actions"
 import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
+import { render } from "@testing-library/react";
 
-export default function Form1(props) {
-  const { dispatch } = useRedux();
-  const [date, setDate] = React.useState(new Date());
-  const [country, setCountry] = React.useState("");
-  const [region, setRegion] = React.useState("");
-
-  const initialValues = {
-    first_name: "",
-    middle_name: "",
-    last_name: "",
-    user_image: "",
-    file_name: "",
-    upload_file: "",
-    email: "",
-    contact_number: "",
-    fax_number: "",
-    lab_address1: "",
-    lab_address2: "",
-    inputZip: "",
-    inputCity: "",
-    dob: "",
-    state: "",
-    country: "",
-  };
-
-  const validateSchema = Yup.object({
-    first_name: Yup.string().required("Required"),
-    last_name: Yup.string().required("Required"),
-    email: Yup.string().email("Enter a valid Email").required("Required"),
+var NewComponent = React.createClass({
+    render: function() {
+      return (
+        <div>
+          export default function Form1(props) {'{'}
+          const {'{'} dispatch {'}'} = useRedux();
+          const [date, setDate] = React.useState(new Date());
+          const [country, setCountry] = React.useState("");
+          const [region, setRegion] = React.useState("");
+          const initialValues = {'{'}
+          first_name: "",
+          middle_name: "",
+          last_name: "",
+          user_image: "",
+          file_name: "",
+          upload_file: "",
+          email: "",
+          contact_number: "",
+          fax_number: "",
+          lab_address1: "",
+          lab_address2: "",
+          inputZip: "",
+          inputCity: "",
+          dob: "",
+          state: "",
+          country: "",
+          {'}'};
+          const validateSchema = Yup.object({'{'}
+          first_name: Yup.string().required("Required"),
+          email: Yup.string().email("Enter a valid Email").required("Required"),
+          {'}'});
+          const handleSubmit = (values) =&gt; {'{'}
+          const finalData = {'{'}
+          first_name: values.first_name,
+          middle_name: values.middle_name,
+          last_name: values.last_name,
+          user_image: values.user_image,
+          file_name: values.file_name,
+          upload_file: values.upload_file,
+          email: values.email,
+          contact_number: values.contact_number,
+          fax_number: values.fax_number,
+          lab_address1: values.lab_address1,
+          lab_address2: values.lab_address2,
+          inputZip: values.inputZip,
+          inputCity: values.inputCity,
+          dob: values.dob,
+          state: values.state,
+          country: values.country,
+          {'}'};
+          dispatch(PostUserDetailsAction(finalData)).then(() =&gt; {'{'}
+          alert("Details Saved successfully❤️");
+          props.onClick();
+          {'}'});
+          {'}'};
+          const today = new Date();
+          render();
+          {'{'}  return (
+          <formik validationschema="{validateSchema}" initialvalues="{initialValues}" onsubmit="{handleSubmit}">
+            <div classname="{" props.state="==" 1 ? "tab-pane active px-3 py-2" : } id="basictab1">
+              <div classname="col-12 ">
+                <h5 classname="mt-0 bg-light p-2 mb-2">
+                  <i classname="fa fa-info-circle me-1">
+                    User Details
+                  </i></h5><i classname="fa fa-info-circle me-1">
+                  <form autoComplete="off">
+                    <div classname="row">
+                      <div classname="mb-2 col-md-4">
+                        <label htmlfor="first_name" classname="form-label">
+                          First Name
+                        </label>
+                        <div classname="input-group">
+                          <div classname="btn-group">
+                            <button type="button" classname="btn btn-light border titledropdown-toggle dropdown-toggle px-1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Title <i classname="mdi mdi-chevron-down">
+                              </i></button><i classname="mdi mdi-chevron-down">
+                              <div classname="dropdown-menu">
+                                {'{'}/* <a classname="dropdown-item" href="#"> */{'}'}
+                                  Mr.
+                                  {'{'}/* </a> */{'}'}
+                                {'{'}/* <a classname="dropdown-item" href="#"> */{'}'}
+                                  Mrs.
+                                  {'{'}/* </a> */{'}'}
+                                {'{'}/* <a classname="dropdown-item" href="#"> */{'}'}
+                                  Dr.
+                                  {'{'}/* </a> */{'}'}
+                                {'{'}/* <a classname="dropdown-item" href="#"> */{'}'}
+                                  Prof.
+                                  {'{'}/* </a> */{'}'}
+                              </div>
+                            </i></div><i classname="mdi mdi-chevron-down">
+                            <field type="text" classname="form-control" placeholder="Enter first name" id="first_name" name="first_name">
+                            </field></i></div><i classname="mdi mdi-chevron-down">
+                          <errormessage name="first_name" component="div" classname="text text-danger ml-2">
+                          </errormessage></i></div><i classname="mdi mdi-chevron-down">
+                        <div classname="mb-2 col-md-4">
+                          <label htmlfor="middle_name" classname="form-label">
+                            Middle name
+                          </label>
+                          <field type="text" classname="form-control" placeholder="Enter middle name" name="middle_name" id="middle_name" required>
+                          </field></div>
+                        <div classname="mb-2 col-md-4">
+                          <label htmlfor="last_name" classname="form-label">
+                            Last Name
+                          </label>
+                          <field type="text" classname="form-control" placeholder="Enter last name" name="last_name" id="last_name">
+                          </field></div>
+                      </i></div><i classname="mdi mdi-chevron-down">
+                      <div classname="row">
+                        <div classname="mb-2 col-md-4">
+                          <label htmlfor="gender" classname="form-label">
+                            Gender
+                          </label>
+                          <select classname="form-select">
+                            <option>Gender</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Other</option>
+                          </select>
+                        </div>
+                        <div classname="mb-2 col-md-4">
+                          <label htmlfor="dob" classname="form-label">
+                            Date of Birth
+                          </label>
+                          <datepicker classname="form-control" maxdate="{today}" name="dob" selected="{date}" onchange="{(date)" => setDate(date){'}'}
+                            /&gt;
+                          </datepicker>
+                          </div>
+                        <div classname="mb-2 col-md-4">
+                          <label htmlfor="maritial-status" classname="form-label">
+                            Maritial Status
+                          </label>
+                          <select classname="form-select">
+                            <option>Choose</option>
+                            <option>Single</option>
+                            <option>Married</option>
+                            <option>Other</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div classname="row">
+                        <div classname="mb-2 col-md-4">
+                          <label htmlfor="document-type" classname="form-label">
+                            Blood Group
+                          </label>
+                          <select classname="form-select">
+                            <option>Choose</option>
+                            <option>A+</option>
+                            <option>A-</option>
+                            <option>B+</option>
+                            <option>B-</option>
+                            <option>O+</option>
+                            <option>O-</option>
+                          </select>
+                        </div>
+                        <div classname="mb-2 col-md-4">
+                          <label htmlfor="user_image" classname="form-label">
+                            User Image
+                          </label>
+                          <field type="file" classname="form-control" name="user_image" id="user_image">
+                          </field></div>
+                      </div>
+                      <h5 classname="mt-2 bg-light p-2 mb-2">
+                        <i classname="fa fa-info-circle me-1">
+                          Upload Documents
+                        </i></h5><i classname="fa fa-info-circle me-1">
+                        <div classname="row  d-flex align-items-end">
+                          <div classname="col-md-4 mb-2">
+                            <label htmlfor="file_name" classname="form-label">
+                              File Name{'{'}" "{'}'}
+                            </label>
+                            <field classname="form-control" type="text" placeholder="Enter File name" name="file_name">
+                            </field></div>
+                          <div classname="col-md-4 mb-2 ">
+                            <label htmlfor="upload_file" classname="form-label">
+                              Upload Document{'{'}" "{'}'}
+                            </label>
+                            <field classname="form-control" type="file" name="upload_file" id="upload_file">
+                            </field></div>
+                        </div>
+                        <div classname="row">
+                          <div classname="col-12">
+                            <div id="newRowUploadDoc">
+                              <button id="addUploadDoc" type="button" classname="btn btn-info  waves-effect waves-light mb-1">
+                                Add more Document
+                              </button>
+                            </div>
+                          </div>
+                          <h5 classname="mt-2 bg-light p-2 mb-2">
+                            <i classname="fa fa-info-circle me-1">
+                              Contact Details
+                            </i></h5><i classname="fa fa-info-circle me-1">
+                            <div classname="row">
+                              <div classname="mb-2 col-md-4">
+                                <label htmlfor="email" classname="form-label">
+                                  Email
+                                </label>
+                                <field type="text" classname="form-control" placeholder="Enter email" name="email" id="email">
+                                  <errormessage name="email" component="div" classname="text text-danger ml-2">
+                                    <span classname="form-text text-muted">
+                                      <small>This email will be use as username.</small>
+                                    </span>
+                                  </errormessage></field></div>
+                              <div classname="mb-2 col-md-4">
+                                <label htmlfor="contact_number" classname="form-label">
+                                  Contact Number
+                                </label>
+                                <field type="text" classname="form-control" placeholder="Enter contact number" name="contact_number" id="contact_number">
+                                </field></div>
+                              <div classname="mb-2 col-md-4">
+                                <label htmlfor="fax_number" classname="form-label">
+                                  Fax Number
+                                </label>
+                                <field type="text" classname="form-control" placeholder="Enter fax number" name="fax_number" id="fax_number">
+                                </field></div>
+                            </div>
+                            <div classname="row">
+                              <div classname="mb-2 col-md-8">
+                                <label htmlfor="lab_address1" classname="form-label">
+                                  Address{'{'}" "{'}'}
+                                </label>
+                                <field type="text" classname="form-control" placeholder="Enter address 1" name="lab_address1" id="lab_address1">
+                                </field></div>
+                              <div classname="mb-2 col-md-4">
+                                <label htmlfor="lab_address2" classname="form-label">
+                                  Complimentary Address{'{'}" "{'}'}
+                                </label>
+                                <field type="text" classname="form-control" placeholder="Enter complimentary address " name="lab_address2" id="lab_address2">
+                                </field></div>
+                            </div>
+                            <div classname="row">
+                              <div classname="mb-2 col-md-3">
+                                <label htmlfor="inputZip" classname="form-label">
+                                  Zip
+                                </label>
+                                <field type="text" classname="form-control" id="inputZip" name="inputZip">
+                                </field></div>
+                              <div classname="mb-2 col-md-3">
+                                <label htmlfor="inputCity" classname="form-label">
+                                  City
+                                </label>
+                                <field type="text" classname="form-control" id="inputCity" name="inputCity">
+                                </field></div>
+                              <div classname="mb-2 col-md-3">
+                                <label htmlfor="inputState" classname="form-label">
+                                  State
+                                </label>
+                                <regiondropdown id="region" classname="form-select" country="{country}" value="{region}" onchange="{(val)" => setRegion(val){'}'}
+                                </regiondropdown>
+                                </div>
+                              <div classname="mb-2 col-md-3">
+                                <label htmlfor="inputState" classname="form-label">
+                                  Country
+                                </label>
+                                <countrydropdown name="country" id="inputState" value="{country}" classname="form-select" onchange="{(val)" => setCountry(val){'}'}
+                                  /&gt;
+                                </countrydropdown>
+                                </div>
+                            </div>
+                            <ul classname="pager wizard mb-0 list-inline text-end mt-2">
+                              <li classname="next list-inline-item">
+                                <button type="submit" classname="btn btn-success">
+                                  Add More Info <i classname="mdi mdi-arrow-right ms-1">
+                                  </i>
+                                  </button>
+                                  <i classname="mdi mdi-arrow-right ms-1">
+                                </i>
+                                </li>
+                                <i classname="mdi mdi-arrow-right ms-1">
+                              </i>
+                              </ul>
+                              <i classname="mdi mdi-arrow-right ms-1">
+                            </i>
+                            </i>
+                            </div>
+                            <i classname="fa fa-info-circle me-1"><i classname="mdi mdi-arrow-right ms-1">
+                          </i>
+                          </i>
+                          </i>
+                          </i>
+                          </form>
+                          </i>
+                          </div>
+                          <i classname="fa fa-info-circle me-1"><i classname="mdi mdi-chevron-down"><i classname="fa fa-info-circle me-1"><i classname="fa fa-info-circle me-1"><i classname="mdi mdi-arrow-right ms-1">
+                        );
+                        {'}'}{'}'}
+                      </i>
+                      </i>
+                      </i>
+                      </i>
+                      </i>
+                      </div>
+                      </formik>
+                      </div>
+      );
+    }
   });
-
-  const handleSubmit = (values) => {
-    const finalData = {
-      first_name: values.first_name,
-      middle_name: values.middle_name,
-      last_name: values.last_name,
-      user_image: values.user_image,
-      file_name: values.file_name,
-      upload_file: values.upload_file,
-      email: values.email,
-      contact_number: values.contact_number,
-      fax_number: values.fax_number,
-      lab_address1: values.lab_address1,
-      lab_address2: values.lab_address2,
-      inputZip: values.inputZip,
-      inputCity: values.inputCity,
-      dob: values.dob,
-      state: values.state,
-      country: values.country,
-    };
-    dispatch(PostUserDetailsAction(finalData)).then(() => {
-        alert("Details Saved Successfully");
-        props.onClick();
-      });
-  };
-  const today = new Date();
-  return (
-    <Formik
-      validationSchema={validateSchema}
-      initialValues={initialValues}
-      onSubmit={handleSubmit}
-    >
-      <div
-        className={
-          props.state === 1
-            ? "tab-pane active  px-3 py-2"
-            : "tab-pane px-3 py-2"
-        }
-        id="basictab1"
-      >
-        <div className="col-12 ">
-          <h5 className="mt-0 bg-light p-2 mb-2">
-            <i className="fa fa-info-circle me-1" />
-            User Details
-          </h5>
-          <Form autoComplete="off">
-            <div className="row">
-              <div className="mb-2 col-md-4">
-                <label htmlFor="first_name" className="form-label">
-                  First Name
-                </label>
-                <div className="input-group">
-                  <div className="btn-group">
-                    <button
-                      type="button"
-                      className="btn btn-light border titledropdown-toggle dropdown-toggle px-1"
-                      data-bs-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      Title <i className="mdi mdi-chevron-down" />
-                    </button>
-                    <div className="dropdown-menu">
-                      Mr.
-                      Mrs.
-                      Dr.
-                    </div>
-                  </div>
-                  <Field
-                    type="text"
-                    className="form-control"
-                    placeholder="Enter first name"
-                    name="first_name"
-                  />
-                </div>
-                <ErrorMessage
-                  name="first_name"
-                  component="div"
-                  className="text text-danger ml-2"
-                />
-              </div>
-              <div className="mb-2 col-md-4">
-                <label htmlFor="middle_name" className="form-label">
-                  Middle name
-                </label>
-                <Field
-                  type="text"
-                  className="form-control"
-                  placeholder="Enter middle name"
-                  name="middle_name"
-                  required=""
-                />
-              </div>
-              <div className="mb-2 col-md-4">
-                <label htmlFor="last_name" className="form-label">
-                  Last Name
-                </label>
-                <Field
-                  type="text"
-                  className="form-control"
-                  placeholder="Enter last name"
-                  name="last_name"
-                />
-              </div>
-            </div>
-            <div className="row">
-              <div className="mb-2 col-md-4">
-                <label htmlFor="gender" className="form-label">
-                  Gender
-                </label>
-                <select className="form-select">
-                  <option>Gender</option>
-                  <option>Male</option>
-                  <option>Female</option>
-                  <option>Other</option>
-                </select>
-              </div>
-              <div className="mb-2 col-md-4">
-                <label htmlFor="dob" className="form-label">
-                  Date of Birth
-                </label>
-                <DatePicker
-                  className="form-control"
-                  maxDate={today}
-                  name="dob"
-                  selected={date}
-                  onChange={(date) => setDate(date)}
-                />
-              </div>
-              <div className="mb-2 col-md-4">
-                <label htmlFor="maritial-status" className="form-label">
-                  Maritial Status
-                </label>
-                <select className="form-select">
-                  <option>Choose</option>
-                  <option>Single</option>
-                  <option>Married</option>
-                  <option>Other</option>
-                </select>
-              </div>
-            </div>
-            <div className="row">
-              <div className="mb-2 col-md-4">
-                <label htmlFor="document-type" className="form-label">
-                  Blood Group
-                </label>
-                <select className="form-select">
-                  <option>Choose</option>
-                  <option>A+</option>
-                  <option>A-</option>
-                  <option>B+</option>
-                  <option>B-</option>
-                  <option>O+</option>
-                  <option>O-</option>
-                  <option>Other</option>
-                </select>
-              </div>
-              <div className="mb-2 col-md-4">
-                <label htmlFor="user_image" className="form-label">
-                  User Image
-                </label>
-                <Field
-                  type="file"
-                  className="form-control"
-                  name="user_image"
-                />
-              </div>
-            </div>
-            <h5 className="mt-2 bg-light p-2 mb-2">
-              <i className="fa fa-info-circle me-1" />
-              Upload Documents
-            </h5>
-            <div className="row  d-flex align-items-end">
-              <div className="col-md-4 mb-2">
-                <label htmlFor="file_name" className="form-label">
-                  File Name{" "}
-                </label>
-                <Field
-                  className="form-control"
-                  type="text"
-                  placeholder="Enter File name"
-                  name="file_name"
-                />
-              </div>
-              <div className="col-md-4 mb-2 ">
-                <label htmlFor="upload_file" className="form-label">
-                  Upload Document{" "}
-                </label>
-                <Field
-                  className="form-control"
-                  type="file"
-                  name="upload_file"
-                  id="upload_file"
-                />
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-12">
-                <div id="newRowUploadDoc" />
-                <button
-                  id="addUploadDoc"
-                  type="button"
-                  className="btn btn-info  waves-effect waves-light mb-1"
-                >
-                  Add more Document
-                </button>
-              </div>
-            </div>
-            <h5 className="mt-2 bg-light p-2 mb-2">
-              <i className="fa fa-info-circle me-1" />
-              Contact Details
-            </h5>
-            <div className="row">
-              <div className="mb-2 col-md-4">
-                <label htmlFor="email" className="form-label">
-                  Email
-                </label>
-                <Field
-                  type="text"
-                  className="form-control"
-                  placeholder="Enter email"
-                  name="email"
-                />
-                <ErrorMessage
-                  name="email"
-                  component="div"
-                  className="text text-danger ml-2"
-                />
-                <span className="form-text text-muted">
-                  <small>This email will be use as username.</small>
-                </span>
-              </div>
-              <div className="mb-2 col-md-4">
-                <label htmlFor="contact_number" className="form-label">
-                  Contact Number
-                </label>
-                <Field
-                  type="text"
-                  className="form-control"
-                  placeholder="Enter contact number"
-                  name="contact_number"
-                  id="contact_number"
-                />
-              </div>
-              <div className="mb-2 col-md-4">
-                <label htmlFor="fax_number" className="form-label">
-                  Fax Number
-                </label>
-                <Field
-                  type="text"
-                  className="form-control"
-                  placeholder="Enter fax number"
-                  name="fax_number"
-                  id="fax_number"
-                />
-              </div>
-            </div>
-            <div className="row">
-              <div className="mb-2 col-md-8">
-                <label htmlFor="lab_address1" className="form-label">
-                  Address{" "}
-                </label>
-                <Field
-                  type="text"
-                  className="form-control"
-                  placeholder="Enter address 1"
-                  name="lab_address1"
-                  id="lab_address1"
-                />
-              </div>
-              <div className="mb-2 col-md-4">
-                <label htmlFor="lab_address2" className="form-label">
-                  Complimentary Address{" "}
-                </label>
-                <Field
-                  type="text"
-                  className="form-control"
-                  placeholder="Enter complimentary address "
-                  name="lab_address2"
-                  id="lab_address2"
-                />
-              </div>
-            </div>
-            <div className="row">
-              <div className="mb-2 col-md-3">
-                <label htmlFor="inputZip" className="form-label">
-                  Zip
-                </label>
-                <Field
-                  type="text"
-                  className="form-control"
-                  id="inputZip"
-                  name="inputZip"
-                />
-              </div>
-              <div className="mb-2 col-md-3">
-                <label htmlFor="inputCity" className="form-label">
-                  City
-                </label>
-                <Field
-                  type="text"
-                  className="form-control"
-                  id="inputCity"
-                  name="inputCity"
-                />
-              </div>
-              <div className="mb-2 col-md-3">
-                <label htmlFor="inputState" className="form-label">
-                  State
-                </label>
-                <RegionDropdown
-                  id="region"
-                  className="form-select"
-                  country={country}
-                  value={region}
-                  onChange={(val) => setRegion(val)}
-                />
-              </div>
-              <div className="mb-2 col-md-3">
-                <label htmlFor="inputState" className="form-label">
-                  Country
-                </label>
-                <CountryDropdown
-                  name="country"
-                  id="inputState"
-                  value={country}
-                  className="form-select"
-                  onChange={(val) => setCountry(val)}
-                />
-              </div>
-            </div>
-            <ul className="pager wizard mb-0 list-inline text-end mt-2">
-              <li className="next list-inline-item">
-                <button type="submit" className="btn btn-success">
-                  Add More Info <i className="mdi mdi-arrow-right ms-1" />
-                </button>
-              </li>
-            </ul>
-          </Form>
-        </div>
-      </div>
-    </Formik>
-  );
-}
